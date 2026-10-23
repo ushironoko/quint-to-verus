@@ -1,0 +1,6 @@
+Verus
+  Version: 0.2026.04.19.6f7d4de
+  Profile: release
+  Platform: macos_aarch64
+  Toolchain: 1.95.0-aarch64-apple-darwin
+

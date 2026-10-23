@@ -1,0 +1,17 @@
+{
+  "name": "quint-to-verus",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup:verus": "node scripts/setup-verus.mjs",
+    "generate": "node scripts/generate.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "node scripts/verify.mjs",
+    "poc": "node scripts/run.mjs"
+  },
+  "dependencies": {
+    "@informalsystems/quint": "0.33.0",
+    "json-bigint": "1.0.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "module": "bank",
+  "init": "init",
+  "actions": ["deposit", "withdraw"],
+  "invariants": ["state_invariant"]
+}

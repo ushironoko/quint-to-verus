@@ -1,0 +1,23 @@
+{
+  "quint": "0.33.0",
+  "verus": "0.2026.04.19.6f7d4de",
+  "rust": "1.95.0",
+  "releaseBase": "https://github.com/verus-lang/verus/releases/download/release/0.2026.04.19.6f7d4de",
+  "assets": {
+    "darwin-arm64": {
+      "file": "verus-0.2026.04.19.6f7d4de-arm64-macos.zip",
+      "directory": "verus-arm64-macos",
+      "sha256": "44cbfef028b227ae9714dda727c4199ee60b6a42105c9f0f207e3b0506d10b16"
+    },
+    "darwin-x64": {
+      "file": "verus-0.2026.04.19.6f7d4de-x86-macos.zip",
+      "directory": "verus-x86-macos",
+      "sha256": "0dfc39e2d41cc1f9a4669247832e47af2fe12f74ccf6844aff02b227e65a02f7"
+    },
+    "linux-x64": {
+      "file": "verus-0.2026.04.19.6f7d4de-x86-linux.zip",
+      "directory": "verus-x86-linux",
+      "sha256": "70285a19620107d1d87b3fc47f50c5b2184fe405437b986a3f3106b84feb74a5"
+    }
+  }
+}

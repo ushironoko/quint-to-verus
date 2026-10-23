@@ -1,0 +1,49 @@
+$ verus results/model-change/account.rs --crate-name model_change --no-cheating --expand-errors
+exit=1
+verification results:: 2 verified, 2 errors
+error: postcondition not satisfied
+  --> results/model-change/account.rs:48:13
+   |
+48 |               model_withdraw(account.view(), out.view(), amount as int),
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ failed this postcondition
+...
+51 | /         Account {
+52 | |             balance: account.balance - amount, // mutation: debit
+53 | |             transactions: account.transactions + 1, // mutation: counter
+54 | |         }
+   | |_________- at the end of the function body
+
+note: diagnostics via expansion
+  --> results/model-change/account.rs:48:13
+   |
+48 |             model_withdraw(account.view(), out.view(), amount as int),
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+  ::: results/model-change/bank.spec.rs:38:9
+   |
+38 |         (post.transactions == (pre.transactions + (2int)))
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+note: 
+
+model_withdraw(old(account).view(), out.view(), old(amount)) ✘
+|   model_withdraw_enabled(old(account).view(), old(amount)) ✔
+|   out.view().balance == old(account).view().balance - old(amount) ✔
+|   out.view().transactions == old(account).view().transactions + 2 ✘
++---
+model_state_invariant(out.view()) ✔
+
+error: assertion failed
+  --> results/model-change/account.rs:62:16
+   |
+62 |         assert(account.transactions == 2);
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^^ assertion failed
+
+note: diagnostics via expansion
+
+note: 
+
+account.transactions == 2 
+
+error: aborting due to 2 previous errors
+

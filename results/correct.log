@@ -1,0 +1,3 @@
+$ verus src/account.rs --crate-name correct --no-cheating --expand-errors --compile -o results/account-demo
+exit=0
+verification results:: 4 verified, 0 errors

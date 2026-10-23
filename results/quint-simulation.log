@@ -1,0 +1,45 @@
+An example execution:
+
+[State 0] { balance: 0, transactions: 0 }
+
+[State 1] { balance: 593, transactions: 1 }
+
+[State 2] { balance: 267, transactions: 2 }
+
+[State 3] { balance: 629, transactions: 3 }
+
+[State 4] { balance: 959, transactions: 4 }
+
+[State 5] { balance: 552, transactions: 5 }
+
+[State 6] { balance: 97, transactions: 6 }
+
+[State 7] { balance: 459, transactions: 7 }
+
+[State 8] { balance: 650, transactions: 8 }
+
+[State 9] { balance: 444, transactions: 9 }
+
+[State 10] { balance: 873, transactions: 10 }
+
+[State 11] { balance: 219, transactions: 11 }
+
+[State 12] { balance: 559, transactions: 12 }
+
+[State 13] { balance: 702, transactions: 13 }
+
+[State 14] { balance: 543, transactions: 14 }
+
+[State 15] { balance: 57, transactions: 15 }
+
+[State 16] { balance: 706, transactions: 16 }
+
+[State 17] { balance: 891, transactions: 17 }
+
+[State 18] { balance: 406, transactions: 18 }
+
+[ok] No violation found (13ms at 7692 traces/second).
+Trace length statistics: max=19, min=2, average=4.96
+You may increase --max-samples and --max-steps.
+Use --verbosity to produce more (or less) output.
+Use --seed=0x48 --backend=typescript to reproduce.

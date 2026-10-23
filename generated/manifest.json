@@ -1,0 +1,57 @@
+{
+  "quintVersion": "0.33.0",
+  "irSha256": "4625b399f92cb33f3243521c065bc274ec12381e257923c853db9ebc7fde3d1e",
+  "sourceSha256": "08c268b5332366fb422a296ee89592f547c933e2ae14a3ef887f398477ea4401",
+  "bindingsSha256": "f183b0a1eb57883339ef488ceb6920d5c36282f8b5727b747bd61aaa7e63e1fd",
+  "module": "bank",
+  "fields": [
+    {
+      "name": "balance",
+      "type": "int"
+    },
+    {
+      "name": "transactions",
+      "type": "int"
+    }
+  ],
+  "init": "init",
+  "actions": [
+    {
+      "name": "deposit",
+      "params": [
+        {
+          "irName": "amount_42",
+          "argument": "arg0",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "withdraw",
+      "params": [
+        {
+          "irName": "amount_67",
+          "argument": "arg0",
+          "type": "int"
+        }
+      ]
+    }
+  ],
+  "invariants": [
+    "state_invariant"
+  ],
+  "referencedDefinitions": [
+    "deposit",
+    "init",
+    "max_balance",
+    "max_transactions",
+    "state_invariant",
+    "withdraw"
+  ],
+  "excludedDefinitions": [
+    "step",
+    "q::init",
+    "q::step"
+  ],
+  "scope": "Selected operation relations only. No full step, temporal, progress, fairness or concurrency proof."
+}

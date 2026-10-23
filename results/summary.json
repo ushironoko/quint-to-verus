@@ -1,0 +1,88 @@
+{
+  "status": "passed",
+  "tools": {
+    "quint": "0.33.0",
+    "verus": "0.2026.04.19.6f7d4de",
+    "rust": "1.95.0",
+    "releaseBase": "https://github.com/verus-lang/verus/releases/download/release/0.2026.04.19.6f7d4de",
+    "assets": {
+      "darwin-arm64": {
+        "file": "verus-0.2026.04.19.6f7d4de-arm64-macos.zip",
+        "directory": "verus-arm64-macos",
+        "sha256": "44cbfef028b227ae9714dda727c4199ee60b6a42105c9f0f207e3b0506d10b16"
+      },
+      "darwin-x64": {
+        "file": "verus-0.2026.04.19.6f7d4de-x86-macos.zip",
+        "directory": "verus-x86-macos",
+        "sha256": "0dfc39e2d41cc1f9a4669247832e47af2fe12f74ccf6844aff02b227e65a02f7"
+      },
+      "linux-x64": {
+        "file": "verus-0.2026.04.19.6f7d4de-x86-linux.zip",
+        "directory": "verus-x86-linux",
+        "sha256": "70285a19620107d1d87b3fc47f50c5b2184fe405437b986a3f3106b84feb74a5"
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "correct",
+      "expected": "accept",
+      "passed": true,
+      "verified": 4,
+      "errors": 0,
+      "exitCode": 0,
+      "source": "src/account.rs",
+      "log": "results/correct.log"
+    },
+    {
+      "name": "missing-debit",
+      "expected": "reject",
+      "passed": true,
+      "verified": 3,
+      "errors": 1,
+      "exitCode": 1,
+      "source": "generated/account-missing-debit.rs",
+      "log": "results/missing-debit.log"
+    },
+    {
+      "name": "missing-counter",
+      "expected": "reject",
+      "passed": true,
+      "verified": 3,
+      "errors": 1,
+      "exitCode": 1,
+      "source": "generated/account-missing-counter.rs",
+      "log": "results/missing-counter.log"
+    },
+    {
+      "name": "model-change",
+      "expected": "reject",
+      "passed": true,
+      "verified": 2,
+      "errors": 2,
+      "exitCode": 1,
+      "source": "results/model-change/account.rs",
+      "log": "results/model-change.log"
+    }
+  ],
+  "verusVersion": "Verus\n  Version: 0.2026.04.19.6f7d4de\n  Profile: release\n  Platform: macos_aarch64\n  Toolchain: 1.95.0-aarch64-apple-darwin",
+  "inputs": {
+    "sourceSha256": "08c268b5332366fb422a296ee89592f547c933e2ae14a3ef887f398477ea4401",
+    "irSha256": "4625b399f92cb33f3243521c065bc274ec12381e257923c853db9ebc7fde3d1e",
+    "specSha256": "846db266c574341ae26fea5cb1a1e3eb4a694714408b4a4ff1ee629b28280d3e",
+    "implementationSha256": "518a2177ca11688c23cc396a80b7aa90c6cc6fe70fb3e78623dbb0db026d2560"
+  },
+  "execution": {
+    "exitCode": 0,
+    "staticallyCheckedScenario": "new → deposit(100) → withdraw(30): balance=70, transactions=2"
+  },
+  "scope": "Selected bank operations, sequential execution, machine integer safety, generated state invariant. No temporal/full-step refinement proof; compiler semantics preservation is not formally proved.",
+  "compilerTests": "results/compiler-tests.log",
+  "quintSimulation": {
+    "log": "results/quint-simulation.log",
+    "samples": 100,
+    "maxSteps": 20,
+    "seed": 42,
+    "exhaustive": false
+  }
+}

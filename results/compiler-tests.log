@@ -1,0 +1,19 @@
+✔ source of updates is IR, including transaction counter, not a bank-specific template (2.936458ms)
+✔ integer literals beyond 2^53 are preserved exactly (1.097ms)
+✔ a missing frame assignment is rejected instead of silently adding or dropping constraints (1.569167ms)
+✔ duplicate updates to a state variable are rejected (0.666458ms)
+✔ exporting an unsupported nondeterministic action is rejected (0.6145ms)
+✔ unsupported arithmetic is rejected, never emitted as an uninterpreted assumption (0.62675ms)
+✔ unresolved references cannot fall back to matching a symbol name (0.784458ms)
+✔ initialization cannot read an unconstrained previous state (0.527791ms)
+✔ polymorphic or untyped input is rejected (0.556459ms)
+✔ model assumptions are not silently discarded (0.578792ms)
+✔ a wrong module binding is rejected (1.024625ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59.694917

@@ -1,0 +1,37 @@
+$ verus generated/account-missing-counter.rs --crate-name missing_counter --no-cheating --expand-errors
+exit=1
+verification results:: 3 verified, 1 errors
+error: postcondition not satisfied
+  --> generated/account-missing-counter.rs:48:13
+   |
+48 |               model_withdraw(account.view(), out.view(), amount as int),
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ failed this postcondition
+...
+51 | /         Account {
+52 | |             balance: account.balance - amount, // mutation: debit
+53 | |             transactions: account.transactions, // mutation: counter
+54 | |         }
+   | |_________- at the end of the function body
+
+note: diagnostics via expansion
+  --> generated/account-missing-counter.rs:48:13
+   |
+48 |             model_withdraw(account.view(), out.view(), amount as int),
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+  ::: generated/../generated/bank.spec.rs:38:9
+   |
+38 |         (post.transactions == (pre.transactions + (1int)))
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+note: 
+
+model_withdraw(old(account).view(), out.view(), old(amount)) ✘
+|   model_withdraw_enabled(old(account).view(), old(amount)) ✔
+|   out.view().balance == old(account).view().balance - old(amount) ✔
+|   out.view().transactions == old(account).view().transactions + 1 ✘
++---
+model_state_invariant(out.view()) ✔
+
+error: aborting due to 1 previous error
+
